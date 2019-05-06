@@ -1,0 +1,20 @@
+{% extends 'sample.html' %}
+
+{% block body1 %}
+<style>
+body{
+    background-color:yellow;
+    color:red;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+}
+
+</style>
+<h1>{{third.name}}{{third.age}}</h1>
+{% for i in first %}
+<h1>name:{{i.name}}</h1>
+<h1>age:{{i.age}}</h1>
+<br>
+{% endfor %}
+<a href='{% url 'html2' %}'><h1>get form</h1></a>
+{% endblock body1 %}

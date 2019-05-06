@@ -1,0 +1,21 @@
+{% extends "sample.html" %}
+ {% block titles %}
+    html2 page
+ {% endblock%}
+
+{% block body1 %}
+    {% for s in sss%}
+
+        <h1>{{s}}</h1>
+    {% endfor %}
+    {% if first == 1%}
+    <h1>enter something</h1>
+    {% endif %}
+    <form action={% url 'formh' %} method='post'>
+     {% csrf_token %}
+    <input type='text' name='name' placeholder="name"><br><br>
+    <input type='text' name='age'placeholder="age"><br><br>
+    <input type='submit' value='ok'> 
+    </form>
+    <a href='{% url 'startdb' %}'><h1>show database</h1></a>
+{% endblock%}
