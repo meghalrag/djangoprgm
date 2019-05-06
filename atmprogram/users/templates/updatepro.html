@@ -1,0 +1,34 @@
+{% extends 'userpage.html' %}
+{% block userblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+<font color="brown" size=5 style="font-style:italic">{{msg}}</font>
+    <h1>update details:</h1>
+    <form action={% url 'updateform' %} method='post'>
+     {% csrf_token %}
+    
+    <div class="input-group">
+      <input id="name" type="text" class="form-control" name="name" placeholder="name">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>   
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="adress" type="text" class="form-control" name="address" placeholder="address">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>   
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="phone" type="text" class="form-control" name="phone" placeholder="phone no">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>   
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="atm" type="text" class="form-control" name="atm" placeholder="atmno">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>   
+    </div>
+    <br>
+  <input type='submit' value='update' class='btn btn-danger'>
+    </form>
+{% endblock userblock %}
