@@ -1,0 +1,28 @@
+{% extends 'header.html' %}
+{% block body1 %}
+    <h2 style="text-style:italic">Register Here</h2>
+    <form action={% url 'formreg' %} method='post'>
+     {% csrf_token %}
+    <div class="input-group">
+      <input id="email" type="email" class="form-control" name="email" placeholder="emailid" required>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>   
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="email" type="text" class="form-control" name="username" placeholder="username" required>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>   
+    </div>
+    <br>
+    <div class="input-group">
+      <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    </div>
+  <br>
+  <div class="input-group">
+      <input id="password" type="password" class="form-control" name="cpassword" placeholder="Confirm Password" required>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    </div>
+    <br>
+  <input type='submit' value='Register' class='btn btn-danger'>
+    </form>
+{% endblock body1 %}

@@ -1,0 +1,6 @@
+{% extends 'userpage.html' %}
+{% block userblock %}
+<h1>your id={{id}}</h1>
+{% load static %}
+<img class="rounded-circle" src="{{obj.profilepic.url}}" alt="{{obj.profilepic.url}}" width="300px" height="300px">
+{% endblock userblock %}

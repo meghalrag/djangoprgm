@@ -1,0 +1,79 @@
+{% extends 'userpage.html' %}
+{% block userblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#lv").click(function(){
+      $('button').toggle();
+    $.ajax({url: "users/getajax/", success: function(result){
+        alert("success");
+      $("#lili").text(result);
+    }});
+  });
+});
+</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<h3>Table</h3>
+<table class="table table-bordered table-hover">
+    <thead> 
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>account no</th>
+        <th>username</th>
+        <th>password</th>
+        <th>phoneno</th>
+        <th>atmno</th>
+        <th>balance</th>
+        <th>profilepic</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for i in first %}
+      <tr class="info">
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.accno}}</td>
+        <td>{{i.fkidreg.username}}</td>
+        <td>{{i.fkidreg.password}}</td>
+        <td>{{i.phoneno}}</td>
+        <td>{{i.atmno}}</td>
+        <td>{{second}}</td>
+        <td>{{i.profilepic}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+<h3>List</h3>
+{% for i in first %}
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success">id:{{i.id}}</li>
+    <li class="list-group-item list-group-item-danger">name:{{i.name}}</li>
+    <li class="list-group-item list-group-item-success">address:{{i.adrress}}</li>
+    <li class="list-group-item list-group-item-success">Accountno:{{i.userid}}</li>
+    <li class="list-group-item list-group-item-danger">username:{{i.username}}</li>
+    <li class="list-group-item list-group-item-success">password:{{i.password}}</li>
+    <li class="list-group-item list-group-item-success">phoneno:{{i.phoneno}}</li>
+    <li class="list-group-item list-group-item-danger">atmno:{{i.atmno}}</li>
+    <li class="list-group-item list-group-item-success">balance:{{i.balance}}</li>
+</ul>
+<br><br>
+{% endfor %}
+
+
+<h3 id='lv'>ListView</h3>
+<button id='listbutton'>click</button>
+<br><br><br>
+<h5 id='lili' style="display:block;">text here</h5>
+<ol>
+{% for i in object_list %}
+<li>{{i.username}}</li>
+{% endfor %}
+</ol>
+{% endblock userblock %}
